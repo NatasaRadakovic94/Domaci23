@@ -54,6 +54,11 @@ public class Test {
         String actualMessage = errorMessage.getText();
         Assert.assertEquals(actualMessage, expectedMessage);
     }
+    @org.testng.annotations.Test
+    public void test4(){
+        pages.doLogin("standard_user", "secret_sauce");
+
+    }
 
     @AfterClass
     public void driverQuit() {
