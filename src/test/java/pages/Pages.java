@@ -30,27 +30,24 @@ public class Pages {
 //    @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]/h3")
 //    private WebElement errorMessage;
 
-    public Pages (WebDriver driver){
+    public Pages(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
 
     }
-    public void fillUsernamePassword(String username, String password){
+
+    public void fillUsernamePassword(String username, String password) {
         this.username.sendKeys(username);
         this.password.sendKeys(password);
     }
-    public void loginClick(){
+
+    public void loginClick() {
         loginButton.click();
     }
-    public void doLogin(String username, String password){
+
+    public void doLogin(String username, String password) {
         fillUsernamePassword(username, password);
         loginClick();
     }
-//    public void setAddToCart(){
-//        addButton.click();
-//    }
-//    public void removeFromCart(){
-//        removeButton.click();
-    }
-    //public void error(String expectedMessage, String errorMessage)
+}
 
