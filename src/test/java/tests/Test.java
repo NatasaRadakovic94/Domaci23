@@ -4,22 +4,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.Pages;
 
+import java.time.Duration;
+
 public class Test {
 
     WebDriver driver;
+    WebDriverWait driverWait;
     Pages pages;
 
     @BeforeClass
     public void beforeClass(){
         System.setProperty("webdriver.chrome.driver", "C:\\bootcamp\\chromedriver.exe");
         driver = new ChromeDriver();
-        pages = new Pages(driver);
+        driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //pages = new Pages(driver);
     }
 
     @BeforeMethod

@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CartPage {
-    private WebDriver driver;
+public class CartPage extends BasePage{
 
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     private WebElement addButton;
@@ -20,9 +20,7 @@ public class CartPage {
     @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]/h3")
     private WebElement errorMessage;
 
-    public CartPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(this.driver, this);
-
+    public CartPage(WebDriver driver, WebDriverWait webDriverWait) {
+        super(driver, webDriverWait);
     }
 }

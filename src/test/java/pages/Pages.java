@@ -3,11 +3,9 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Pages {
-
-    private WebDriver driver;
+public class Pages extends BasePage{
 
     @FindBy(id = "user-name")
     private WebElement username;
@@ -18,23 +16,14 @@ public class Pages {
     @FindBy(id = "login-button")
     private WebElement loginButton;
 
-//    @FindBy(id = "add-to-cart-sauce-labs-backpack")
-//    private WebElement addButton;
-//
-//    @FindBy(xpath = "//*[@id=\"shopping_cart_container\"]/a")
-//    private WebElement cart;
-//
-//    @FindBy(id = "remove-sauce-labs-backpack")
-//    private WebElement removeButton;
-//
-//    @FindBy(xpath = "//*[@id=\"login_button_container\"]/div/form/div[3]/h3")
-//    private WebElement errorMessage;
+    public Pages(WebDriver driver, WebDriverWait driverWait) {
 
-    public Pages(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(this.driver, this);
-
+        super(driver, driverWait);
     }
+
+//    public Pages(WebDriver driver) {;
+//        this.driver = driver;
+//        PageFactory.initElements(this.driver, this);
 
     public void fillUsernamePassword(String username, String password) {
         this.username.sendKeys(username);
